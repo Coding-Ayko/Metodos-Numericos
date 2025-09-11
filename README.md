@@ -1,67 +1,74 @@
-# Tópico 1: Derivação Numérica
+# Métodos Numéricos - Estudos e Implementações
 
-Este script demonstra como calcular a derivada de uma função em um ponto específico utilizando métodos de diferenças finitas.
+<p align="center">
+  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-green" alt="Status do Projeto: Em Desenvolvimento">
+  <img src="https://img.shields.io/github/languages/top/Coding-Ayko/Metodos-Numericos" alt="Linguagem Principal">
+  <img src="https://img.shields.io/github/license/Coding-Ayko/Metodos-Numericos" alt="Licença">
+  <img src="https://img.shields.io/github/last-commit/Coding-Ayko/Metodos-Numericos" alt="Último Commit">
+</p>
 
-## Conceitos
+---
 
-A derivada de uma função $f(x)$ em um ponto $x$ representa a taxa de variação instantânea da função nesse ponto. Analiticamente, a derivada de $f(x) = \sin(x)$ é $f'(x) = \cos(x)$.
+## Sobre o Projeto
 
-Quando não podemos calcular a derivada analítica, usamos aproximações numéricas.
+Este repositório serve como um registro dos meus estudos na disciplina de Métodos Numéricos. O objetivo é aplicar os conceitos teóricos em algoritmos práticos, solidificando o aprendizado e construindo um portfólio de projetos acadêmicos.
 
-### Métodos Implementados
+Cada pasta representa um tópico de estudo, contendo o código-fonte da implementação e um `README.md` com a explicação matemática do método abordado.
 
-1.  **Diferença Finita Progressiva**: Utiliza o valor da função no ponto atual e em um ponto um pouco à frente.
-    $$ f'(x) \approx \frac{f(x+h) - f(x)}{h} $$
+---
 
-2.  **Diferença Finita Central**: Utiliza valores da função simetricamente em torno do ponto de interesse, o que geralmente produz um resultado mais preciso.
-    $$ f'(x) \approx \frac{f(x+h) - f(x-h)}{2h} $$
+## Tópicos Abordados
 
-Onde $h$ é um valor pequeno, chamado de "passo".
+Atualmente, o projeto contém implementações para os seguintes métodos:
 
-## Execução
+* **[01 - Derivação Numérica](./01-Derivacao_Numerica/)**: Métodos para calcular a derivada de uma função em um ponto, utilizando as fórmulas de diferenças finitas (progressiva e central) e análise de erro.
 
-O script `main.py` calcula a derivada de $f(x) = \sin(x)$ em $x=1$ para dois valores de $h$ (0.1 e 0.01) e compara os resultados com o valor analítico exato, calculando também o erro absoluto de cada método.
+* **[02 - Séries Numéricas](./02-Series_Numericas/)**: Algoritmos para o cálculo de somatórios, com exemplos que se aproximam de constantes matemáticas famosas como π (Problema de Basileia) e o número de Euler.
 
-# Tópico 2: Séries Numéricas (Somatórios)
+* **[03 - Integração Numérica](./03-Integracao_Numerica/)**: Introdução ao cálculo de integrais definidas de forma numérica, utilizando o método da soma de retângulos (regra do ponto à esquerda).
 
-Este script implementa o cálculo de somatórios finitos que aproximam o valor de séries infinitas conhecidas.
+---
 
-## Conceitos
+## Tecnologias Utilizadas
 
-Um somatório, representado pelo símbolo sigma ($ \sum $), é a adição de uma sequência de termos. Em métodos numéricos, somatórios são usados para aproximar valores de séries, calcular médias, entre outras aplicações.
+* **Linguagem:** [Python 3](https://www.python.org/)
+* **Bibliotecas:**
+    * `math` (Funções matemáticas padrão)
+    * `numpy` (Para manipulação numérica precisa em alguns scripts)
 
-### Séries Implementadas
+---
 
-1.  **Série de Basileia (Aproximação)**: O cálculo do somatório:
-    $$ S_1 = \sum_{n=1}^{100} \frac{1}{n^2} $$
-    Esta é uma aproximação finita da famosa série infinita que converge para $ \frac{\pi^2}{6} $.
+## Como Rodar o Projeto
 
-2.  **Série de Taylor para $e^x$ (Aproximação)**: O cálculo do somatório:
-    $$ S_2 = \sum_{n=1}^{100} \frac{1}{n!} $$
-    A série infinita $ \sum_{n=0}^{\infty} \frac{1}{n!} $ converge para o número de Euler, $e$. Como nosso somatório começa em $n=1$, ele converge para $e - 1$. O script implementa uma versão otimizada que evita o recálculo completo do fatorial a cada passo.
+Para executar os exemplos, siga os passos abaixo:
 
-## Execução
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/Coding-Ayko/Metodos-Numericos.git](https://github.com/Coding-Ayko/Metodos-Numericos.git)
+    ```
 
-O script `main.py` calcula os dois somatórios até o limite de $N=100$ e compara os resultados com seus respectivos valores teóricos conhecidos.
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd Metodos-Numericos
+    ```
 
-# Tópico 3: Integração Numérica
+3.  **Escolha um tópico e execute o script:**
+    ```bash
+    # Exemplo para o tópico de Derivação Numérica
+    cd 01-Derivacao_Numerica
+    python main.py
+    ```
 
-Este script introduz o conceito de integração numérica, que consiste em encontrar um valor aproximado para uma integral definida. A integral definida de uma função $f(x)$ em um intervalo $[a, b]$ representa a área sob a curva da função nesse intervalo.
+---
 
-## Conceitos
+## Próximos Passos
 
-### Método da Soma de Retângulos (Regra do Ponto à Esquerda)
+A ideia é continuar adicionando novos métodos numéricos, como:
 
-Este é um dos métodos mais simples para aproximar uma integral. A ideia é dividir a área sob a curva em $n$ retângulos de larguras iguais e somar suas áreas.
+- [ ] Métodos para encontrar raízes de funções (Bissecção, Newton-Raphson).
+- [ ] Interpolação (Polinômios de Lagrange, Newton).
+- [ ] Solução de sistemas de equações lineares (Gauss-Seidel).
+- [ ] Métodos de integração mais precisos (Regra dos Trapézios, Simpson).
 
-1.  **Largura do Retângulo ($h$)**: O intervalo total $[a, b]$ é dividido em $n$ partes iguais. A largura de cada retângulo é:
-    $$ h = \frac{b - a}{n} $$
+---
 
-2.  **Altura do Retângulo**: Para a regra do ponto à esquerda, a altura de cada retângulo é determinada pelo valor da função no início do seu subintervalo, ou seja, $f(x_i)$.
-
-3.  **Área Total**: A integral é aproximada pela soma das áreas desses $n$ retângulos.
-    $$ \int_{a}^{b} f(x) \,dx \approx \sum_{i=0}^{n-1} h \cdot f(x_i) $$
-
-## Execução
-
-O script `main.py` calcula a integral de $f(x) = 10x^4$ no intervalo $[2, 6]$, usando $n=4$ divisões. Ele também calcula o valor exato da integral (via cálculo analítico) para determinar o erro da aproximação numérica.
